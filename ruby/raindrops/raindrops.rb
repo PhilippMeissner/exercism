@@ -1,10 +1,13 @@
 class Raindrops
+  RAINDROP_MAPPER = {
+    3 => 'Pling',
+    5 => 'Plang',
+    7 => 'Plong'
+  }
+
   def self.convert number
-    matches = []
-    matches << 'Pling' if number % 3 == 0
-    matches << 'Plang' if number % 5 == 0
-    matches << 'Plong' if number % 7 == 0
-    matches.empty? ? number.to_s : matches.join
+    raindrops = RAINDROP_MAPPER.map{ |factor, raindrop| raindrop if number % factor == 0 }
+    raindrops.any? ? raindrops.join : number.to_s
   end
 end
 
