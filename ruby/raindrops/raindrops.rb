@@ -3,7 +3,7 @@ class Raindrops
     3 => 'Pling',
     5 => 'Plang',
     7 => 'Plong'
-  }
+  }.freeze
 
   def self.convert number
     raindrops = RAINDROP_MAPPER.map{ |factor, raindrop| raindrop if number % factor == 0 }
